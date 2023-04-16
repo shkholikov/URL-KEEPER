@@ -15,4 +15,4 @@ You can modify this file with your own URLs and test it by running the following
 ### `npm run start`
 
 
-### Check my URLs here: [URL-KEEPER 🔗](https://shkholikov.github.com/URL-KEEPER).
+### Check my URLs here: [URL-KEEPER 🔗](https://shkholikov.github.io/URL-KEEPER/).
