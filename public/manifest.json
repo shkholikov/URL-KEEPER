@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "URL-KEEPER",
+  "name": "Keep your URLs with URL-KEEPER",
   "icons": [
     {
       "src": "favicon.ico",
