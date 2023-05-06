@@ -6,13 +6,17 @@ This project helps to collect all your urls in one place.
 
 Install all dependencies in the project folder
 
-### `npm install`
+```
+npm install
+```
 
 Take a look at ./src/urls.tsx file, to get familiar how the urls are structured with their svg icon.
 
 You can modify this file with your own URLs and test it by running the following command:
 
-### `npm run start`
+```
+npm run start
+```
 
 
 ### Check my URLs here: [URL-KEEPER 🔗](https://shkholikov.github.io/URL-KEEPER/).
