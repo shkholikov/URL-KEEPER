@@ -79,7 +79,7 @@ export const urls = [
   },
   {
     title: "Telegram",
-    popular: false,
+    popular: true,
     link: "https://t.me/shkholikov",
     icon: (
       <svg
