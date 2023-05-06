@@ -6,7 +6,7 @@ import devImage from "./images/dev.png";
 const App: React.FC = () => {
   return (
     <>
-      <div className="w-auto h-screen bg-white border border-gray-200 drop-shadow-lg sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+      <div className="w-auto p-4 h-screen bg-white border border-gray-200 drop-shadow-lg sm:p-8 dark:bg-gray-800 dark:border-gray-700">
         <div className="flex justify-center mb-5">
           <img className="w-32 h-32" src={devImage} alt="avatar" />
         </div>
