@@ -1,12 +1,12 @@
 import React from "react";
 import "./App.css";
-import {urls} from "./urls";
+import { urls } from "./urls";
 import devImage from "./images/dev.png";
 
 const App: React.FC = () => {
   return (
     <>
-      <div className="w-auto p-4 h-screen bg-white border border-gray-200 drop-shadow-lg sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+      <div className="w-auto h-auto p-4 h-screen bg-white border border-gray-200 drop-shadow-lg sm:p-8 dark:bg-gray-800 dark:border-gray-700">
         <div className="flex justify-center mb-5">
           <img className="w-32 h-32" src={devImage} alt="avatar" />
         </div>
@@ -33,9 +33,9 @@ const App: React.FC = () => {
                     <span className="flex-1 ml-3 whitespace-nowrap">
                       {url.title}
                     </span>
-                    {url.popular ? (
+                    {url.highlight ? (
                       <span className="inline-flex items-center justify-center px-2 py-0.5 ml-3 text-xs font-medium text-gray-500 bg-gray-200 rounded dark:bg-gray-700 dark:text-gray-400">
-                        Popular
+                        {url.highlight}
                       </span>
                     ) : (
                       ""
