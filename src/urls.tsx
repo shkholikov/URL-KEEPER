@@ -5,7 +5,7 @@ export const urls = [
   {
     title: "ITHINK",
     highlight: "Popular",
-    link: "https://github.com/shkholikov",
+    link: "https://www.ithinktech.uz",
     icon: <img src={ithink} height="22" width="22" alt="icon" />,
   },
   {
@@ -106,7 +106,7 @@ export const urls = [
   {
     title: "BackgroundLab",
     highlight: "Telegram channel",
-    link: "https://t.me/shkholikov",
+    link: "https://t.me/backgroundlab",
     icon: (
       <svg
         aria-hidden="true"
