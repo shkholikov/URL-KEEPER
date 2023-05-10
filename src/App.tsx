@@ -46,7 +46,7 @@ const App: React.FC = () => {
             </ul>
             <div>
               <a
-                href="https://www.ithinktech.uz/"
+                href="https://www.ithink.uz/"
                 className="inline-flex items-center text-xs font-normal text-gray-500 hover:underline dark:text-gray-400"
               >
                 <svg
