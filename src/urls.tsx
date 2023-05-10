@@ -5,7 +5,7 @@ export const urls = [
   {
     title: "ITHINK",
     highlight: "Popular",
-    link: "https://www.ithinktech.uz",
+    link: "https://www.ithink.uz",
     icon: <img src={ithink} height="22" width="22" alt="icon" />,
   },
   {
