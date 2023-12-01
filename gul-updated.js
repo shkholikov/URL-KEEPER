@@ -32,4 +32,29 @@ build.rig.getTasks = function () {
 // Rest of your existing gulp.js code...
 // ...
 
+
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["webworker", "es2015"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": false,
+    "outDir": "./dist", // or your preferred output directory
+  },
+  "include": [
+    "src/path/to/your/worker/**/*.ts" // Adjust this path to include your worker files
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
+
+
 build.initialize(require("gulp"));
