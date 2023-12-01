@@ -58,3 +58,19 @@ build.rig.getTasks = function () {
 
 
 build.initialize(require("gulp"));
+
+Error - [webpack] 'dist':
+./lib/webparts/obb/pages/Statistics.js 235:97
+Module parse failed: Unexpected token (235:97)
+File was processed with these loaders:
+ * ./node_modules/source-map-loader/dist/cjs.js
+You may need an additional loader to handle the result of these loaders.
+|     //     }
+|     // }, [state.inspections]);
+>     var worker = useMemo(function () { return new Worker(new URL("./statistics.worker.ts", import.meta.url)); }, []);
+|     useEffect(function () {
+|         if (state.inspections.length > 0) {
+ @ ./lib/webparts/obb/routes/Router.js 60:0-45 133:195-205
+ @ ./lib/webparts/obb/App.js
+ @ ./lib/webparts/obb/ObbWebPart.js
+  
