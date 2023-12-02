@@ -1,24 +1,22 @@
-/*
-* User webpack settings file. You can add your own settings here.
-* Changes from this file will be merged into the base webpack configuration file.
-* This file will not be overwritten by the subsequent spfx-fast-serve calls.
-*/
+const path = require('path');
 
-// you can add your project related webpack configuration here, it will be merged using webpack-merge module
-// i.e. plugins: [new webpack.Plugin()]
-const webpackConfig = {
-
-}
-
-// for even more fine-grained control, you can apply custom webpack settings using below function
+// The function to transform the webpack config
 const transformConfig = function (initialWebpackConfig) {
-  // transform the initial webpack config here, i.e.
-  // initialWebpackConfig.plugins.push(new webpack.Plugin()); etc.
+  // Adding worker-loader configuration to the webpack config
+  initialWebpackConfig.module.rules.push({
+    test: /\.worker\.ts$/,
+    use: { loader: 'worker-loader' },
+    include: path.resolve(__dirname, '../src/workers') // Make sure this path points to your workers directory
+  });
 
+  // When using worker-loader, you may encounter "window is not defined" errors. To fix this, set the globalObject to 'this'.
+  initialWebpackConfig.output.globalObject = 'this';
+
+  // Return the modified config
   return initialWebpackConfig;
-}
+};
 
+// Export the configuration
 module.exports = {
-  webpackConfig,
-  transformConfig
-}
+  transformConfig // The function exported here will be used to modify the webpack configuration
+};
