@@ -1,36 +1,42 @@
 "use strict";
 
-const gulp = require('gulp');
 const build = require("@microsoft/sp-build-web");
-const ts = require('gulp-typescript');
+const gulp = require("gulp");
+const ts = require("gulp-typescript");
+const log = require('@microsoft/gulp-core-build').log;
 
-// Existing code in your gulp.js...
-// ...
+// Suppress specific warnings (existing setup)
+build.addSuppression(`Warning - [sass] The local CSS class 'ms-Grid' is not camelCase and will not be type-safe.`);
 
-// Define TypeScript project for your worker
-const tsWorker = ts.createProject('src/path/to/your/tsconfig.worker.json');
-
-// Gulp task to transpile the worker TypeScript file
-gulp.task('transpile-worker', () => {
-  return tsWorker.src()
-    .pipe(tsWorker())
-    .js.pipe(gulp.dest('dist')); // Change 'dist' to your desired output directory
+// Custom task to compile TypeScript workers
+gulp.task("compile-workers", () => {
+    const tsProject = ts.createProject("tsconfig.json");
+    return gulp.src('./src/workers/*.ts') // Adjust the path to your TypeScript workers
+        .pipe(tsProject())
+        .pipe(gulp.dest('./temp/workers')) // Output directory for compiled workers
+        .on('end', () => {
+            log('Compiled TypeScript workers.');
+        });
 });
 
-// Modify the serve task to include your new transpile task
-var getTasks = build.rig.getTasks;
-build.rig.getTasks = function () {
-    var result = getTasks.call(build.rig);
+// Custom task to copy compiled workers to the build directory
+gulp.task("copy-workers", () => {
+    return gulp.src('./temp/workers/*.js')
+        .pipe(gulp.dest('./lib/workers')) // Copying the compiled workers to the build directory
+        .on('end', () => {
+            log('Copied compiled workers to build directory.');
+        });
+});
 
-    // Add your transpile task to the serve sequence
-    const serve = result.get('serve');
-    result.set('serve', gulp.series('transpile-worker', serve));
+// Overriding the existing build task
+build.task('build', build.serial('compile-workers', 'copy-workers', build.rig.getBuildTask()));
 
-    return result;
-};
+// Fast-serve integration (existing setup)
+const { addFastServe } = require("spfx-fast-serve-helpers");
+addFastServe(build);
 
-// Rest of your existing gulp.js code...
-// ...
+// Initialize the custom build pipeline
+build.initialize(require("gulp"));
 
 
 {
