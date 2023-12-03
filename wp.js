@@ -1,22 +1,17 @@
-const path = require('path');
+useEffect(() => {
+        if (state.inspections.length > 0) {
+            const worker = new Worker(`${appContext.context.pageContext.site.absoluteUrl}/Configuration/statistics.worker.js`);
+            if (worker) {
+                worker.onmessage = (e) => {
+                    console.log(e.data);
+                    setState({ ...state, statisticsForVisualization: e.data, statisticsCalculated: true, dataLoaded: true });
+                };
 
-// The function to transform the webpack config
-const transformConfig = function (initialWebpackConfig) {
-  // Adding worker-loader configuration to the webpack config
-  initialWebpackConfig.module.rules.push({
-    test: /\.worker\.ts$/,
-    use: { loader: 'worker-loader' },
-    include: path.resolve(__dirname, '../src/workers') // Make sure this path points to your workers directory
-  });
+                worker.postMessage(state);
 
-  // When using worker-loader, you may encounter "window is not defined" errors. To fix this, set the globalObject to 'this'.
-  initialWebpackConfig.output.globalObject = 'this';
-
-  // Return the modified config
-  return initialWebpackConfig;
-};
-
-// Export the configuration
-module.exports = {
-  transformConfig // The function exported here will be used to modify the webpack configuration
-};
+                return () => {
+                    worker.terminate();
+                };
+            }
+        }
+    }, [state.inspections]);
