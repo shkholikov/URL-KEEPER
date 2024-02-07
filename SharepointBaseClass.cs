@@ -329,3 +329,40 @@ namespace Commerzbank.EtSquare.Import
 
 // code: "-2147024809
 // message: {lang: "en-US", value: "Value does not fall within the expected range."}
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Calculate the first day of the current year
+        var firstDayOfCurrentYear = new DateTime(DateTime.Now.Year, 1, 1);
+        string firstDayOfCurrentYearIso8601 = firstDayOfCurrentYear.ToString("yyyy-MM-ddT00:00:00Z");
+
+        // Construct the CAML query
+        string camlQueryXml = $@"
+<View>
+  <Query>
+    <Where>
+      <Geq>
+        <FieldRef Name='Created' />
+        <Value Type='DateTime' IncludeTimeValue='FALSE'>{firstDayOfCurrentYearIso8601}</Value>
+      </Geq>
+    </Where>
+  </Query>
+  <ViewFields>
+    <FieldRef Name='ID' />
+    <FieldRef Name='Title' />
+    <FieldRef Name='Created' />
+    <!-- Add any other fields you need here -->
+  </ViewFields>
+  <RowLimit>100</RowLimit> <!-- Adjust the row limit as needed -->
+</View>";
+
+        Console.WriteLine("CAML Query to get items created in the current year:");
+        Console.WriteLine(camlQueryXml);
+    }
+}
+
