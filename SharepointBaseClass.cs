@@ -325,3 +325,7 @@ namespace Commerzbank.EtSquare.Import
         public HttpClient GetHttpClient() => HttpClient;
     }
 }
+
+
+// code: "-2147024809
+// message: {lang: "en-US", value: "Value does not fall within the expected range."}
