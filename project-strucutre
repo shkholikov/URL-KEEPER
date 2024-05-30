@@ -25,3 +25,13 @@ AccidentReportAPI (Solution)
     │   ├── WeatherServiceTests.cs
     └── Repositories
         ├── WeatherRepositoryTests.cs
+
+
+
+Authentication Flow:
+User -> React App -> Azure AD (Login) -> Azure AD (Token Issued) -> React App
+
+Authorization Flow:
+React App (Access Token) -> .NET API (Token Validation) -> .NET API (Role-Based Access Control) -> Response
+
+
