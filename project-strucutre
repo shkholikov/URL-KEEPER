@@ -1,6 +1,6 @@
-SimpleApiWithWindowsAuth (Solution)
+AccidentReportAPI (Solution)
 │
-├── SimpleApiWithWindowsAuth (Web API Project)
+├── AccidentReportAPI (Web API Project)
 │   ├── Controllers
 │   │   ├── WeatherForecastController.cs
 │   ├── Models
@@ -18,7 +18,7 @@ SimpleApiWithWindowsAuth (Solution)
 │   ├── Program.cs
 │   └── Startup.cs
 │
-└── SimpleApiWithWindowsAuth.Tests (Testing Project)
+└── AccidentReportAPI.Tests (Testing Project)
     ├── Controllers
     │   ├── WeatherForecastControllerTests.cs
     ├── Services
