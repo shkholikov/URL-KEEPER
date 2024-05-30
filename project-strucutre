@@ -1,0 +1,27 @@
+SimpleApiWithWindowsAuth (Solution)
+│
+├── SimpleApiWithWindowsAuth (Web API Project)
+│   ├── Controllers
+│   │   ├── WeatherForecastController.cs
+│   ├── Models
+│   │   ├── WeatherForecast.cs
+│   ├── Services
+│   │   ├── WeatherService.cs
+│   │   └── IWeatherService.cs
+│   ├── Repositories
+│   │   ├── WeatherRepository.cs
+│   │   └── IWeatherRepository.cs
+│   ├── DTOs
+│   │   ├── WeatherForecastDto.cs
+│   ├── Middlewares
+│   │   └── CustomExceptionMiddleware.cs
+│   ├── Program.cs
+│   └── Startup.cs
+│
+└── SimpleApiWithWindowsAuth.Tests (Testing Project)
+    ├── Controllers
+    │   ├── WeatherForecastControllerTests.cs
+    ├── Services
+    │   ├── WeatherServiceTests.cs
+    └── Repositories
+        ├── WeatherRepositoryTests.cs
