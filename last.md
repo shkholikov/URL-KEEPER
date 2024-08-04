@@ -1,95 +1,85 @@
-To clean up the second array based on the `isIncluded` property of objects in the first array, you can follow these steps:
+### Коммерческое предложение на замену интеграции стороннего API в приложении CS-Cart
 
-1. **Create a Set of Names from the First Array**: Only include names where `isIncluded` is `true`.
-2. **Filter the Second Array**: Use the `filter` method to keep only those items in the second array that exist in the Set created from the first array.
+#### Описание проекта:
+Проект включает замену текущей интеграции стороннего API на новый API 1C в приложении CS-Cart. Необходимые задачи включают анализ текущей интеграции, разработку новой интеграции, модификацию существующего кода, тестирование и внедрение в рабочую среду.
 
-Here's how you can implement this:
+---
 
-### Example Arrays
+#### Этапы и задачи проекта:
 
-Assume we have two arrays of objects:
+| Задача | Описание | Срок выполнения | Стоимость | Статус |
+|--------|----------|-----------------|-----------|--------|
+| **1. Анализ текущей интеграции** | - Детальное изучение текущего кода, использующего старый API (SCAD API). <br> - Выделение всех точек взаимодействия с API в кодовой базе. <br> - Документирование текущих процессов и данных, передаваемых через API. | 5 дней | $500 | Не начато |
+| **2. Разработка интеграции с новым API 1C** | - Ознакомление с документацией нового API 1C. <br> - Разработка новых функций и классов для взаимодействия с API 1C. <br> - Подготовка тестовых сценариев для проверки корректности работы с новым API. | 10 дней | $1000 | Не начато |
+| **3. Модификация текущего кода** | - Поиск и замена всех вызовов старого API на новый API 1C. <br> - Обновление существующих контроллеров, моделей и функциональных модулей. <br> - Обновление зависимостей и библиотек, если необходимо. | 15 дней | $1500 | Не начато |
+| **4. Обновление шаблонов и фронтенд-логики** | - Обновление шаблонов для отображения данных, получаемых от нового API. <br> - Обновление JavaScript-кода для работы с новым API. <br> - Проверка и корректировка стилей, если требуется. | 7 дней | $700 | Не начато |
+| **5. Тестирование** | - Разработка и выполнение тестовых сценариев для проверки новой интеграции. <br> - Функциональное тестирование всех обновленных модулей и шаблонов. <br> - Исправление выявленных ошибок и оптимизация кода. | 10 дней | $800 | Не начато |
+| **6. Внедрение в рабочую среду** | - Подготовка к развертыванию новой интеграции в рабочую среду. <br> - Перенос изменений на производственные серверы. <br> - Мониторинг работы системы и оперативное устранение возникающих проблем. | 5 дней | $500 | Не начато |
+| **ИТОГО** | - Полная замена интеграции стороннего API на новый API 1C. <br> - Общий срок выполнения: 52 дня | - | $5000 | - |
 
-```javascript
-const array1 = [
-  { name: "mail name 1", mail: "mailname1@mail.com", isIncluded: true },
-  { name: "mail name 2", mail: "mailname2@mail.com", isIncluded: false },
-  { name: "mail name 3", mail: "mailname3@mail.com", isIncluded: true }
-];
+---
 
-const array2 = [
-  { name: "mail name 1", mail: "mailname1@mail.com", comsi: "mailname1" },
-  { name: "mail name 2", mail: "mailname2@mail.com", comsi: "mailname2" },
-  { name: "mail name 3", mail: "mailname3@mail.com", comsi: "mailname3" },
-  { name: "mail name 4", mail: "mailname4@mail.com", comsi: "mailname4" }
-];
-```
+#### Дополнительные услуги:
 
-### Implementation
+| Задача | Описание | Срок выполнения | Стоимость | Статус |
+|--------|----------|-----------------|-----------|--------|
+| **Поддержка и сопровождение** | - Обеспечение технической поддержки в течение 1 месяца после внедрения. <br> - Консультации и устранение возможных проблем. <br> - Постоянный мониторинг и оптимизация работы API. | 30 дней | $300 | Не начато |
+| **Обучение персонала** | - Проведение обучающих сессий для персонала по работе с новым API. <br> - Подготовка подробной документации и руководств по использованию. <br> - Индивидуальные консультации для ключевых сотрудников. | 3 дня | $200 | Не начато |
 
-1. **Create a Set of Names from `array1` where `isIncluded` is `true`**:
-   - Use a `Set` to store the names from `array1` where `isIncluded` is `true`.
+---
 
-2. **Filter `array2`**:
-   - Use the `filter` method to keep only those items whose `name` exists in the `Set` from `array1`.
+### ИТОГО по проекту:
 
-#### Code Implementation
+| Наименование | Стоимость |
+|--------------|-----------|
+| Основные задачи проекта | $5000 |
+| Дополнительные услуги | $500 |
+| **Общая стоимость** | **$5500** |
 
-```javascript
-// Create a Set of names from the first array where isIncluded is true
-const includedNames = new Set(array1.filter(item => item.isIncluded).map(item => item.name));
+---
 
-// Filter the second array to keep only items whose name exists in the Set
-const cleanedArray2 = array2.filter(item => includedNames.has(item.name));
+### Подробное описание этапов работы:
 
-console.log(cleanedArray2);
-```
+**Этап 1: Анализ текущей интеграции**
 
-### Explanation
+- **Изучение кода**: Провести анализ всех участков кода, взаимодействующих с текущим API (SCAD API).
+- **Документирование процессов**: Создать документацию, описывающую текущие процессы интеграции, используемые данные и их структуру.
 
-1. **Filtering and Mapping `array1` to a Set**:
-   - `array1.filter(item => item.isIncluded)` filters the items in `array1` where `isIncluded` is `true`.
-   - `.map(item => item.name)` creates an array of names from the filtered items.
-   - `new Set(array1.filter(item => item.isIncluded).map(item => item.name))` creates a `Set` from this array, allowing for efficient lookup.
+**Этап 2: Разработка интеграции с API 1C**
 
-2. **Filtering `array2`**:
-   - `array2.filter(item => includedNames.has(item.name))` iterates over each item in `array2` and includes it in `cleanedArray2` only if `includedNames` contains the `name` of the item.
+- **Изучение API 1C**: Ознакомиться с методами, форматами данных и особенностями работы API 1C.
+- **Разработка**: Создать новые функции и классы для работы с API 1C.
+- **Тестовые сценарии**: Подготовить и задокументировать тестовые сценарии для проверки новой интеграции.
 
-### Result
+**Этап 3: Модификация текущего кода**
 
-After running the above code, `cleanedArray2` will be:
+- **Обновление кода**: Заменить все вызовы старого API на новый API 1C.
+- **Корректировка зависимостей**: Обновить зависимости и библиотеки, если это необходимо для работы с новым API.
 
-```javascript
-[
-  { name: "mail name 1", mail: "mailname1@mail.com", comsi: "mailname1" },
-  { name: "mail name 3", mail: "mailname3@mail.com", comsi: "mailname3" }
-]
-```
+**Этап 4: Обновление шаблонов и фронтенд-логики**
 
-### Full Example
+- **Шаблоны**: Обновить шаблоны, используемые для отображения данных от нового API.
+- **JavaScript**: Обновить JavaScript-код для работы с новым API.
+- **Стили**: Проверить и при необходимости откорректировать стили.
 
-Here’s the complete example in one block:
+**Этап 5: Тестирование**
 
-```javascript
-const array1 = [
-  { name: "mail name 1", mail: "mailname1@mail.com", isIncluded: true },
-  { name: "mail name 2", mail: "mailname2@mail.com", isIncluded: false },
-  { name: "mail name 3", mail: "mailname3@mail.com", isIncluded: true }
-];
+- **Функциональное тестирование**: Провести тестирование всех обновленных модулей и шаблонов.
+- **Исправление ошибок**: Устранить выявленные ошибки и оптимизировать код.
 
-const array2 = [
-  { name: "mail name 1", mail: "mailname1@mail.com", comsi: "mailname1" },
-  { name: "mail name 2", mail: "mailname2@mail.com", comsi: "mailname2" },
-  { name: "mail name 3", mail: "mailname3@mail.com", comsi: "mailname3" },
-  { name: "mail name 4", mail: "mailname4@mail.com", comsi: "mailname4" }
-];
+**Этап 6: Внедрение в рабочую среду**
 
-// Create a Set of names from the first array where isIncluded is true
-const includedNames = new Set(array1.filter(item => item.isIncluded).map(item => item.name));
+- **Подготовка к развертыванию**: Подготовить все необходимые изменения для развертывания на рабочие серверы.
+- **Мониторинг**: Внедрить новую интеграцию и осуществлять мониторинг её работы, оперативно устраняя возникающие проблемы.
 
-// Filter the second array to keep only items whose name exists in the Set
-const cleanedArray2 = array2.filter(item => includedNames.has(item.name));
+---
 
-console.log(cleanedArray2);
-```
+### Заключение
 
-This approach ensures that `array2` only contains items that are also in `array1` and have `isIncluded` set to `true`.
+Тщательная реализация данных этапов позволит эффективно интегрировать ваш интернет-магазин на CS-Cart с системой 1C через новый API, обеспечивая актуальность данных и автоматизацию бизнес-процессов. Мы готовы предоставить полную техническую поддержку и обучение вашего персонала для обеспечения бесперебойной работы и успешного внедрения новой интеграции.
+
+Если у вас возникнут вопросы или потребуется дополнительная информация, пожалуйста, свяжитесь с нами.
+
+---
+
+Такое коммерческое предложение предоставляет подробный и профессиональный обзор всех этапов работы, сроки выполнения, стоимость и дополнительную информацию для успешного выполнения проекта.
